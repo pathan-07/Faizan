@@ -12,6 +12,8 @@ A sleek, responsive personal portfolio website built with React, TypeScript, and
 - **Section-Based Layout** - Organized content in well-defined sections
 - **Interactive Elements** - Animated skill bars, project cards with hover effects
 - **Accessible Navigation** - Mobile-friendly navigation with smooth scrolling
+- **Live Chat** - Integrated Tidio chat bot for instant messaging
+- **Contact Form** - EmailJS integration for direct message delivery
 
 ## 🛠️ Technologies
 
@@ -23,6 +25,10 @@ A sleek, responsive personal portfolio website built with React, TypeScript, and
   - Lucide React (icons)
   - Wouter (routing)
   
+- **Third-Party Services**
+  - EmailJS (contact form)
+  - Tidio (chat bot)
+
 - **Development Tools**
   - Vite (build tool)
   - ESLint (code quality)
@@ -33,9 +39,14 @@ A sleek, responsive personal portfolio website built with React, TypeScript, and
 - **About** - Short bio and introduction
 - **Experience** - Professional experience with timeline layout
 - **Projects** - Showcase of highlighted projects with links
-- **Skills** - Visual representation of technical and soft skills
+- **Skills** - Visual representation of technical and soft skills including:
+  - Programming Languages: Python, Java, C, JavaScript
+  - Web Development: HTML/CSS, Flask
+  - Data Science: Machine Learning, NLP, Data Analysis
+  - Specialized: Vibe Coding
+  - Soft Skills: Communication, Problem Solving, Public Speaking
 - **Education** - Academic background and certifications
-- **Contact** - Contact form and personal information
+- **Contact** - Secure contact form and personal information
 
 ## 🚀 Getting Started
 
@@ -66,14 +77,24 @@ A sleek, responsive personal portfolio website built with React, TypeScript, and
    yarn add --dev cross-env
    ```
 
-4. Start the development server
+4. Set up environment variables
+   - Create a `.env.local` file in the client directory
+   - Add the following variables:
+     ```
+     VITE_EMAILJS_SERVICE_ID=your_service_id
+     VITE_EMAILJS_TEMPLATE_ID=your_template_id
+     VITE_EMAILJS_PUBLIC_KEY=your_public_key
+     VITE_CONTACT_EMAIL=your_email@example.com
+     ```
+
+5. Start the development server
    ```bash
    npm run dev
    # or
    yarn dev
    ```
 
-5. Open [http://localhost:5000](http://localhost:5000) in your browser
+6. Open [http://localhost:5000](http://localhost:5000) in your browser
 
 ## 📝 Project Structure
 
@@ -108,12 +129,24 @@ The main color scheme is defined in `client/src/index.css`:
 ### Content
 Update your personal information in `client/src/lib/data.ts`
 
+### Third-Party Services
+- **EmailJS**: Update the service credentials in the `.env.local` file
+- **Tidio**: The chat widget script is included in `index.html`
+
 ## 📱 Mobile View
 
 The portfolio is fully responsive with a special mobile navigation menu:
 - Hamburger menu for navigation on small screens
 - Optimized layout for mobile viewing
 - Touch-friendly interactive elements
+- Repositioned chat widget for better mobile experience
+
+## 🔒 Security Features
+
+- Environment variables for sensitive information
+- Form validation using Zod
+- Protected email addresses from scrapers
+- Loading states for better UX
 
 ## 🤝 Contributing
 

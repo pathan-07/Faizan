@@ -3,7 +3,7 @@ import App from "./App";
 import "./index.css";
 import { init as initEmailJS } from '@emailjs/browser';
 
-// Initialize EmailJS with your public key
-initEmailJS("public_key"); // Replace with your actual EmailJS public key
+// Initialize EmailJS with public key from environment variable
+initEmailJS(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 createRoot(document.getElementById("root")!).render(<App />);

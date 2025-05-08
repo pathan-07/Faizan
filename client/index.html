@@ -15,5 +15,59 @@
     <script type="module" src="/src/main.tsx"></script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+    
+    <!-- Tidio Live Chat Bot with custom positioning -->
+    <script src="//code.tidio.co/axkx2p9ud2nqqfqd9dwlhzqqrhkvdafd.js" async></script>
+    <script>
+      // Custom positioning for Tidio chat widget
+      (function() {
+        // Function to apply styles to Tidio
+        function positionTidioWidget() {
+          // Create a style element
+          var style = document.createElement('style');
+          style.type = 'text/css';
+          style.innerHTML = `
+            #tidio-chat-iframe, 
+            .tidio-5rvzwb, 
+            [id^="tidio-chat"] {
+              right: 20px !important;
+              bottom: 20px !important;
+              left: auto !important;
+              top: auto !important;
+              position: fixed !important;
+              z-index: 9999 !important;
+              margin: 0 !important;
+            }
+            @media (max-width: 768px) {
+              #tidio-chat-iframe, 
+              .tidio-5rvzwb,
+              [id^="tidio-chat"] {
+                bottom: 80px !important;
+                right: 10px !important;
+              }
+            }
+          `;
+          document.head.appendChild(style);
+        }
+
+        // Apply immediately
+        positionTidioWidget();
+
+        // Apply when Tidio is ready
+        document.addEventListener('tidioChat-ready', function() {
+          positionTidioWidget();
+          
+          // Apply again after a short delay to ensure it works
+          setTimeout(positionTidioWidget, 1000);
+          setTimeout(positionTidioWidget, 2000);
+        });
+        
+        // Also try again after page has fully loaded
+        window.addEventListener('load', function() {
+          positionTidioWidget();
+          setTimeout(positionTidioWidget, 1000);
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -12,11 +12,11 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 
-// EmailJS configuration
-const EMAILJS_SERVICE_ID = "service_mh2nlgg"; // Replace with your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = "template_d9bcf0b"; // Replace with your EmailJS template ID
-const EMAILJS_PUBLIC_KEY = "pGHxboZ8DmnGbLVcm"; // Replace with your EmailJS public key
-const YOUR_EMAIL = "pathanfaizankhan0123@gmail.com"; // Your email address
+// EmailJS configuration from environment variables
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const YOUR_EMAIL = import.meta.env.VITE_CONTACT_EMAIL;
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
