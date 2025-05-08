@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
     "start": "cross-env NODE_ENV=production node dist/server/index.js",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && npm run build:server",
+    "build:server": "tsc -p tsconfig.server.json",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
