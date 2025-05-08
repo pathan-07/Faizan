@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeIn, staggerContainer } from "../lib/motion";
 import { contactInfo, socialLinks } from "../lib/data";
@@ -9,6 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
+
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = "service_mh2nlgg"; // Replace with your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = "template_d9bcf0b"; // Replace with your EmailJS template ID
+const EMAILJS_PUBLIC_KEY = "pGHxboZ8DmnGbLVcm"; // Replace with your EmailJS public key
+const YOUR_EMAIL = "pathanfaizankhan0123@gmail.com"; // Your email address
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -22,6 +30,8 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const ContactSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -33,12 +43,50 @@ const ContactSection = () => {
     },
   });
 
-  function onSubmit(data: ContactFormValues) {
-    // In a real application, you would send the data to a backend API
-    console.log(data);
-    // Success notification
-    alert("Thank you for your message! I'll get back to you soon.");
-    form.reset();
+  async function onSubmit(data: ContactFormValues) {
+    setIsSubmitting(true);
+    
+    try {
+      // Prepare the template parameters for EmailJS
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        to_email: YOUR_EMAIL,
+        subject: data.subject,
+        message: data.message,
+      };
+      
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      console.log("Email sent successfully:", response);
+      
+      // Show success notification
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message! I'll get back to you soon.",
+        variant: "default",
+      });
+      
+      // Reset the form after successful submission
+      form.reset();
+    } catch (error) {
+      console.error("Error sending message:", error);
+      
+      // Show error notification
+      toast({
+        title: "Failed to send message",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -47,7 +95,7 @@ const ContactSection = () => {
       ref={sectionRef}
       className="section-padding gradient-bg"
     >
-      <div className="container mx-auto px-6">
+      <div className="mx-auto px-4 md:px-6 max-w-6xl">
         <motion.h2
           variants={fadeIn("up", "tween", 0.1, 1)}
           initial="hidden"
@@ -148,8 +196,9 @@ const ContactSection = () => {
                 <Button 
                   type="submit" 
                   className="w-full bg-[#6366F1] hover:bg-[#6366F1]/90 text-white"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>

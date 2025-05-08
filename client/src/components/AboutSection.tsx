@@ -12,7 +12,7 @@ const AboutSection = () => {
       ref={sectionRef}
       className="section-padding"
     >
-      <div className="container mx-auto px-6">
+      <div className="mx-auto px-4 md:px-6 max-w-6xl">
         <motion.div
           variants={staggerContainer(0.1, 0.2)}
           initial="hidden"

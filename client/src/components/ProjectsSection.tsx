@@ -14,7 +14,7 @@ const ProjectsSection = () => {
       ref={sectionRef}
       className="section-padding"
     >
-      <div className="container mx-auto px-6">
+      <div className="mx-auto px-4 md:px-6 max-w-6xl">
         <motion.h2
           variants={fadeIn("up", "tween", 0.1, 1)}
           initial="hidden"
@@ -34,17 +34,17 @@ const ProjectsSection = () => {
             <motion.div
               key={index}
               variants={fadeIn("up", "tween", 0.2 + index * 0.1, 1)}
-              className="bg-[#2D2D2D] rounded-xl overflow-hidden shadow-lg card-hover"
+              className="bg-[#2D2D2D] rounded-xl shadow-lg card-hover"
             >
-              <div className="h-56 overflow-hidden">
+              <div className="h-56">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-t-xl"
                 />
               </div>
               <div className="p-6">
-                <div className="flex justify-between items-center mb-3">
+                <div className="flex justify-between items-center mb-3 flex-wrap">
                   <h3 className="text-xl font-bold font-poppins">
                     {project.title}
                   </h3>

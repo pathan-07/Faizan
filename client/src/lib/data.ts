@@ -102,8 +102,8 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     link: "https://github.com/pathan-07/ProfessionalPortfolio",
-    liveLink: "https://faizan-portfolio.vercel.app",
-    repoLink: "https://github.com/pathan-07/ProfessionalPortfolio",
+    liveLink: "#",
+    repoLink: "https://github.com/pathan-07/dashbord",
   },
   {
     title: "SMS Spam Detection Model",
@@ -141,11 +141,13 @@ export const skillCategories: SkillCategory[] = [
       className: "h-8 w-8 text-[#6366F1] mr-4",
     }),
     skills: [
-      { name: "Python", level: 85 },
+      { name: "Python", level: 60 },
       { name: "HTML/CSS", level: 80 },
-      { name: "JavaScript", level: 75 },
-      { name: "Flask", level: 70 },
-      { name: "C Programming", level: 65 },
+      { name: "JavaScript", level: 55 },
+      { name: "Java", level: 55 },
+      { name: "C Programming", level: 60 },
+      { name: "Flask", level: 45 },
+      { name: "Vibe Coding", level: 70 },
     ],
   },
   {
@@ -154,10 +156,10 @@ export const skillCategories: SkillCategory[] = [
       className: "h-8 w-8 text-[#6366F1] mr-4",
     }),
     skills: [
-      { name: "Natural Language Processing", level: 80 },
-      { name: "Jupyter", level: 75 },
-      { name: "Machine Learning", level: 70 },
-      { name: "Data Analysis", level: 75 },
+      { name: "Natural Language Processing", level: 45 },
+      { name: "Jupyter", level: 45 },
+      { name: "Machine Learning", level: 45 },
+      { name: "Data Analysis", level: 45 },
       { name: "Problem Analysis", level: 85 },
     ],
   },
@@ -171,7 +173,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Project Management", level: 75 },
       { name: "Public Speaking", level: 85 },
       { name: "Creative Problem Solving", level: 80 },
-      { name: "Social Media Marketing", level: 70 },
+      { name: "Social Media Marketing", level: 45 },
     ],
   },
 ];
@@ -184,9 +186,11 @@ export const allSkills: string[] = [
   "Creative Problem Solving",
   "Flask",
   "HTML",
+  "Java",
   "JavaScript",
   "JSON",
   "Jupyter",
+  "Machine Learning",
   "NLP",
   "Problem Analysis",
   "Project Management",
@@ -194,7 +198,9 @@ export const allSkills: string[] = [
   "Python",
   "Social Media Marketing",
   "Technology Integration",
+  "Vibe Coding",
   "Website Building",
+  "C Programming",
 ];
 
 export const education: Education[] = [
