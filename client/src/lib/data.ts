@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
   {
     company: "LetsUpgrade",
     position: "Student Ambassador",
-    period: "01/2025 - Present",
+    period: "01/2025 - 31/2025",
     location: "Mumbai, Maharashtra, India",
     description:
       "Working as a student ambassador to promote learning and technology adoption among peers.",
