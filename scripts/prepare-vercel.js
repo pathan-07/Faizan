@@ -15,19 +15,54 @@ if (!fs.existsSync(apiDir)) {
 // Create a server.js file that will be used as the Vercel Serverless Function
 const serverHandlerContent = `
 import express from 'express';
-import { createServer } from 'http';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import cors from 'cors';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const app = express();
 
-// Import the server code
-import '../server/index.js';
+// Middleware
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://your-domain.vercel.app'] 
+    : ['http://localhost:5173', 'http://localhost:3000'],
+  credentials: true
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// This is a helper file for Vercel deployment
-// The actual server logic is in ../server/index.js
+// API routes
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Server is running' });
+});
+
+// Contact form handling endpoint
+app.post('/api/contact', (req, res) => {
+  const { name, email, subject, message } = req.body;
+  
+  // Validate required fields
+  if (!name || !email || !message) {
+    return res.status(400).json({ 
+      success: false, 
+      error: 'Name, email, and message are required' 
+    });
+  }
+
+  // Here you would typically send an email or store the contact request
+  // For now, we're just returning success response
+  console.log('Contact form submission:', { name, email, subject, message });
+  
+  res.json({ 
+    success: true, 
+    message: 'Message sent successfully!' 
+  });
+});
+
+// Catch all handler for API routes
+app.use('/api/*', (req, res) => {
+  res.status(404).json({ error: 'API endpoint not found' });
+});
+
+// Export the Express app as a Vercel serverless function
+export default app;
 `;
 
 // Write the serverless handler to the api directory

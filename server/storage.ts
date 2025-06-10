@@ -1,4 +1,17 @@
-import { users, type User, type InsertUser } from "@shared/schema";
+// In-memory storage for demo purposes
+// In production, you would use a proper database
+
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  createdAt: Date;
+}
+
+export interface InsertUser {
+  username: string;
+  email: string;
+}
 
 // modify the interface with any CRUD methods
 // you might need
@@ -27,10 +40,9 @@ export class MemStorage implements IStorage {
       (user) => user.username === username,
     );
   }
-
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.currentId++;
-    const user: User = { ...insertUser, id };
+    const user: User = { ...insertUser, id, createdAt: new Date() };
     this.users.set(id, user);
     return user;
   }
