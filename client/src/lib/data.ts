@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
   {
     company: "LetsUpgrade",
     position: "Student Ambassador",
-    period: "01/2025 - Present",
+    period: "01/2025 - 31/2025",
     location: "Mumbai, Maharashtra, India",
     description:
       "Working as a student ambassador to promote learning and technology adoption among peers.",
@@ -143,13 +143,12 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Python", level: 60 },
       { name: "HTML/CSS", level: 80 },
-      { name: "JavaScript", level: 55 },
-      { name: "Java", level: 55 },
+      { name: "JavaScript", level: 30 },
+      { name: "Java", level: 45 },
       { name: "C Programming", level: 60 },
-      { name: "Flask", level: 45 },
+      { name: "Flask", level: 30 },
       { name: "Vibe Coding", level: 70 },
-    ],
-  },
+    ],  },
   {
     name: "AI & Data Science",
     icon: React.createElement(Brain, {
@@ -161,6 +160,54 @@ export const skillCategories: SkillCategory[] = [
       { name: "Machine Learning", level: 45 },
       { name: "Data Analysis", level: 45 },
       { name: "Problem Analysis", level: 85 },
+    ],
+  },
+  {
+    name: "Generative AI & LLMs",
+    icon: React.createElement(Brain, {
+      className: "h-8 w-8 text-[#6366F1] mr-4",
+    }),
+    skills: [
+      { name: "Foundations of Gen AI", level: 60 },
+      { name: "Large Language Models (LLMs)", level: 70 },
+      { name: "Prompt Engineering", level: 85 },
+      { name: "AI Tool Selection", level: 80 },
+      { name: "Master Prompt Technique", level: 80 },
+    ],
+  },
+  {
+    name: "AI Agents & Automation",
+    icon: React.createElement(Cpu, {
+      className: "h-8 w-8 text-[#6366F1] mr-4",
+    }),
+    skills: [
+      { name: "Personalized AI Agents", level: 35 },
+      { name: "OpenAI Assistant API", level: 45 },
+      { name: "Make.com Automation", level: 50 },
+      { name: "ChatGPT API Integration", level: 40 },
+    ],
+  },
+  {
+    name: "AI Visual & Creative Tools",
+    icon: React.createElement(Globe, {
+      className: "h-8 w-8 text-[#6366F1] mr-4",
+    }),
+    skills: [
+      { name: "MidJourney Prompting", level: 80 },
+      { name: "AI Image Generation", level: 85 },
+      { name: "Visual Storytelling", level: 80 },
+      { name: "AI Video Creation", level: 70 },
+    ],
+  },
+  {
+    name: "Advanced AI Engineering",
+    icon: React.createElement(Terminal, {
+      className: "h-8 w-8 text-[#6366F1] mr-4",
+    }),
+    skills: [
+      { name: "RAG Systems", level: 30 },
+      { name: "FAISS Integration", level: 25 },
+      { name: "Multi-agent AI Systems", level: 40 },
     ],
   },
   {
@@ -201,6 +248,32 @@ export const allSkills: string[] = [
   "Vibe Coding",
   "Website Building",
   "C Programming",
+  "Foundations of Gen AI",
+  "Large Language Models (LLMs)",
+  "Prompt Engineering",
+  "AI Tool Selection",
+  "Master Prompt Technique",
+  "Context-Aware Prompting",
+  "AI Problem Solving",
+  "Personalized AI Agents",
+  "OpenAI Assistant API",
+  "Workflow Automation",
+  "Make.com (Integromat)",
+  "ChatGPT API Integration",
+  "Multi-step AI Workflows",
+  "Web App AI Integration",
+  "MidJourney Advanced",
+  "AI Image Generation",
+  "Artistic Style Control",
+  "AI Video Creation",
+  "AI Storyboarding",
+  "Visual Storytelling",
+  "RAG Systems",
+  "FAISS Vector Retrieval",
+  "Multi-agent AI Systems",
+  "LLM Data Pipeline Integration",
+  "AI Workflow Design",
+  "GenAI Tool Experimentation",
 ];
 
 export const education: Education[] = [
@@ -220,6 +293,12 @@ export const education: Education[] = [
 ];
 
 export const certifications: Certification[] = [
+    {
+    name: "Generative AI Masterminds",
+    issuer: "Outskill",
+    period: "06/2025 - Present",
+    icon: React.createElement(Brain, { className: "text-[#6366F1] text-xl" }),
+  },
   {
     name: "AI: Transformative Learning with TechSaksham",
     issuer: "Edunet Foundation",

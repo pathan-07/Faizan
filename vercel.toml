@@ -1,0 +1,16 @@
+# Vercel.toml configuration file
+
+[build]
+  command = "npm run build"
+  install = ["npm install"]
+  publish = "dist"
+
+[[plugins]]
+  package = "@vercel/node"
+
+[build.environment]
+  NODE_ENV = "production"
+
+# Specify Node.js version
+[build.environment]
+  NODE_VERSION = "18.x"
