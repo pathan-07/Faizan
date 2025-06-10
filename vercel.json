@@ -1,14 +1,16 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/public",  "functions": {
-    "dist/api/server.js": {
+  "outputDirectory": "dist/public",
+  "functions": {
+    "api/server.js": {
       "memory": 1024,
       "maxDuration": 10
     }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/server" },
+  },  "rewrites": [
+    { "source": "/api/health", "destination": "/api/server/health" },
+    { "source": "/api/contact", "destination": "/api/server/contact" },
+    { "source": "/api/(.*)", "destination": "/api/server/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

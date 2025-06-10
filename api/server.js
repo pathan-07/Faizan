@@ -1,19 +1,4 @@
-// This script prepares your server code for deployment on Vercel
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Create api directory at the root level for Vercel
-const apiDir = path.join(__dirname, '../api');
-if (!fs.existsSync(apiDir)) {
-  fs.mkdirSync(apiDir, { recursive: true });
-}
-
-// Create a server.js file that will be used as the Vercel Serverless Function
-const serverHandlerContent = `
 import express from 'express';
 import cors from 'cors';
 
@@ -61,9 +46,3 @@ app.use('*', (req, res) => {
 
 // Export the Express app as a Vercel serverless function
 export default app;
-`;
-
-// Write the serverless handler to the api directory
-fs.writeFileSync(path.join(apiDir, 'server.js'), serverHandlerContent);
-
-console.log('✅ Vercel deployment files created successfully!');
