@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { Menu, X, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "../hooks/use-mobile";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,7 +70,7 @@ const Navbar = () => {
   return (
     <nav
       id="main-nav"
-      className={`fixed w-full z-50 bg-[#1A1A1A] bg-opacity-95 backdrop-blur-sm transition-all duration-300 border-b border-[#3A3A3A]/30 ${
+      className={`fixed w-full z-50 bg-background/95 backdrop-blur-sm transition-all duration-300 border-b border-border/30 ${
         isScrolled ? "py-2 shadow-md" : "py-4"
       }`}
     >
@@ -80,23 +81,27 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-[#6366F1] transition duration-300"
+                className="text-foreground hover:text-primary transition duration-300"
               >
                 {link.name}
               </a>
             ))}
+                  <div className="py-2 px-4">
+                    <ThemeToggle />
+                  </div>
           </div>
 
-          {/* Mobile Navigation Toggle */}
-          <div className="md:hidden">
+          {/* Mobile Navigation Toggle and Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
             <button
               onClick={toggleMobileMenu}
-              className="text-white focus:outline-none p-2 rounded-lg hover:bg-[#2D2D2D] transition-colors duration-300"
+              className="text-foreground focus:outline-none p-2 rounded-lg hover:bg-muted transition-colors duration-300"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -117,7 +122,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#2D2D2D] fixed top-[calc(var(--nav-height,60px))] left-0 right-0 z-40 shadow-lg border-t border-[#3A3A3A]"
+            className="md:hidden bg-card fixed top-[calc(var(--nav-height,60px))] left-0 right-0 z-40 shadow-lg border-t border-border"
           >
             <div className="container mx-auto px-6 py-4">
               <div className="flex flex-col space-y-4">
@@ -125,7 +130,7 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-white hover:text-[#6366F1] transition duration-300 py-2 px-4 rounded-lg hover:bg-[#1A1A1A]/40 font-medium"
+                    className="text-foreground hover:text-primary transition duration-300 py-2 px-4 rounded-lg hover:bg-background/40 font-medium"
                     onClick={closeMobileMenu}
                   >
                     {link.name}

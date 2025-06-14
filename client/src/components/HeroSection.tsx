@@ -26,16 +26,16 @@ const HeroSection = () => {
             variants={fadeIn("right", "tween", 0.1, 1)}
             className="md:w-1/2 mb-10 md:mb-0"
           >
-            <span className="inline-block text-[#6366F1] font-medium mb-2">
+            <span className="inline-block text-primary font-medium mb-2">
               Hello, I'm
             </span>
             <h1 className="text-4xl md:text-6xl font-bold font-poppins mb-6">
               Pathan Mo. <span className="gradient-text">Faizan Khan</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               Computer Science Engineering Student & Tech Enthusiast
             </p>
-            <p className="text-gray-400 mb-8 max-w-xl">
+            <p className="text-muted-foreground/80 mb-8 max-w-xl">
               Pursuing B.E. in Computer Science with experience in AI, web
               development, and innovative tech solutions through multiple
               internships.
@@ -45,7 +45,7 @@ const HeroSection = () => {
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-[#6366F1] text-white font-medium rounded-lg hover:bg-opacity-90 transition duration-300"
+                className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-opacity-90 transition duration-300"
               >
                 Get in Touch
               </motion.a>
@@ -53,7 +53,7 @@ const HeroSection = () => {
                 href="#projects"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 border border-[#6366F1] text-[#6366F1] font-medium rounded-lg hover:bg-[#6366F1] hover:bg-opacity-10 transition duration-300"
+                className="px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:bg-opacity-10 transition duration-300"
               >
                 View Projects
               </motion.a>
@@ -64,21 +64,21 @@ const HeroSection = () => {
             className="md:w-1/2 flex justify-center"
           >
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#6366F1] bg-gradient-to-br from-[#1A1A1A] to-[#2D2D2D] p-1">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary bg-gradient-to-br from-background to-muted p-1">
                 <img
                   src="/assets/images/profile-photo.jpg"
                   alt="Pathan Mo. Faizan Khan"
                   className="w-full h-full object-cover rounded-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#6366F1]/10 to-transparent mix-blend-overlay rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent mix-blend-overlay rounded-full"></div>
               </div>
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -bottom-6 -right-6 bg-[#2D2D2D] rounded-lg p-4 shadow-lg"
+                className="absolute -bottom-6 -right-6 bg-card rounded-lg p-4 shadow-lg"
               >
-                <span className="text-[#6366F1] font-poppins font-bold text-lg">
+                <span className="text-primary font-poppins font-bold text-lg">
                   3+ Internships
                 </span>
               </motion.div>
@@ -89,7 +89,7 @@ const HeroSection = () => {
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <a
             href="#about"
-            className="text-white opacity-70 hover:opacity-100 transition duration-300"
+            className="text-foreground opacity-70 hover:opacity-100 transition duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

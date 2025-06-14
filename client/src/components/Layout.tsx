@@ -23,7 +23,7 @@ const BackToTop = () => {
   return (
     <a
       href="#hero"
-      className="fixed bottom-8 right-8 bg-[#6366F1] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-70 transition-all duration-300 z-50 hover:bg-opacity-90 hover:opacity-100"
+      className="fixed bottom-8 right-8 bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-70 transition-all duration-300 z-50 hover:bg-opacity-90 hover:opacity-100"
       onClick={(e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -5,6 +5,11 @@
 @tailwind utilities;
 
 :root {
+  --radius: 0.5rem;
+  --nav-height: 60px;
+}
+
+.dark {
   --background: 0 0% 10%;
   --foreground: 0 0% 100%;
   --muted: 0 0% 18%;
@@ -24,7 +29,6 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   --ring: 240 91% 67%;
-  --radius: 0.5rem;
   --chart-1: 240 91% 67%;
   --chart-2: 270 90% 65%;
   --chart-3: 340 82% 52%;
@@ -38,7 +42,41 @@
   --sidebar-accent-foreground: 0 0% 100%;
   --sidebar-border: 0 0% 20%;
   --sidebar-ring: 240 91% 67%;
-  --nav-height: 60px;
+}
+
+.light {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 10%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --card: 0 0% 98%;
+  --card-foreground: 0 0% 10%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --primary: 240 91% 67%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 5% 96%;
+  --secondary-foreground: 0 0% 10%;
+  --accent: 270 90% 65%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 240 91% 67%;
+  --chart-1: 240 91% 67%;
+  --chart-2: 270 90% 65%;
+  --chart-3: 340 82% 52%;
+  --chart-4: 50 90% 50%;
+  --chart-5: 160 84% 40%;
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 0 0% 10%;
+  --sidebar-primary: 240 91% 67%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 270 90% 65%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 0 0% 90%;
+  --sidebar-ring: 240 91% 67%;
 }
 
 @layer base {
@@ -64,7 +102,7 @@
   }
 
   body {
-    @apply font-inter bg-[#1A1A1A] text-white;
+    @apply font-inter bg-background text-foreground;
     overflow-x: hidden;
     width: 100%;
     position: relative;

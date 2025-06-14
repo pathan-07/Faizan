@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -7,8 +7,22 @@ import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
+import PageTransition from "@/components/PageTransition";
+import LoadingAnimation from "@/components/LoadingAnimation";
+import SEO from "@/components/SEO";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     // Animate sections on scroll
     const observerOptions = {
@@ -37,16 +51,33 @@ const Home = () => {
     };
   }, []);
 
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full bg-background">
+        <LoadingAnimation size="large" color="primary" />
+      </div>
+    );
+  }
+
   return (
-    <Layout>
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <EducationSection />
-      <ContactSection />
-    </Layout>
+    <>
+      <SEO 
+        title="Pathan Mo. Faizan Khan - Portfolio" 
+        description="Portfolio website of Pathan Mo. Faizan Khan, Computer Science Engineering Student and Tech Enthusiast showcasing projects, skills, and experience."
+        type="website"
+      />
+      <PageTransition>
+        <Layout>
+          <HeroSection />
+          <AboutSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <SkillsSection />
+          <EducationSection />
+          <ContactSection />
+        </Layout>
+      </PageTransition>
+    </>
   );
 };
 

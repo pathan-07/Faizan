@@ -36,14 +36,6 @@ export const experiences: Experience[] = [
       "At Shree Swaminarayan Institute of Technology, we organized and facilitated tech workshops focused on AI, coding, and digital skills. I managed live demos and supported seamless event execution, helping foster a culture of innovation among students.",
   },
   {
-    company: "LetsUpgrade",
-    position: "Student Ambassador",
-    period: "01/2025 - 31/2025",
-    location: "Mumbai, Maharashtra, India",
-    description:
-      "Working as a student ambassador to promote learning and technology adoption among peers.",
-  },
-  {
     company: "Edunet Foundation",
     position: "AI: Transformative Learning with TechSaksham",
     period: "12/2024 - 01/2025",

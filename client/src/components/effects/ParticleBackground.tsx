@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
 
 interface Particle {
   x: number;
@@ -21,7 +22,7 @@ interface ParticleBackgroundProps {
 
 const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
   count = 100,
-  colors = ['#6366F1', '#8B5CF6', '#34D399'],
+  colors = [],
   opacity = 0.5,
   minSize = 1,
   maxSize = 5,
@@ -31,6 +32,13 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const requestIdRef = useRef<number>(0);
+  const { theme } = useTheme();
+  
+  // Define theme-specific colors
+  const themeColors = colors.length > 0 ? colors : 
+    theme === 'dark' ? 
+      ['#6366F1', '#8B5CF6', '#34D399'] : 
+      ['#4F46E5', '#7C3AED', '#10B981'];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -62,7 +70,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
           size: Math.random() * (maxSize - minSize) + minSize,
           speedX: (Math.random() - 0.5) * speed,
           speedY: (Math.random() - 0.5) * speed,
-          color: colors[Math.floor(Math.random() * colors.length)],
+          color: themeColors[Math.floor(Math.random() * themeColors.length)],
         });
       }
     };
@@ -116,7 +124,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(requestIdRef.current);
     };
-  }, [count, colors, opacity, minSize, maxSize, speed]);
+  }, [count, themeColors, opacity, minSize, maxSize, speed, theme]);
 
   return (
     <canvas
