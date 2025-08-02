@@ -28,51 +28,88 @@ import {
 
 export const experiences: Experience[] = [
   {
-    company: "Skill Development Club SSIT",
-    position: "Tech Member",
-    period: "03/2025 - Present",
-    location: "Gandhinagar, Gujarat, India",
-    description:
-      "At Shree Swaminarayan Institute of Technology, we organized and facilitated tech workshops focused on AI, coding, and digital skills. I managed live demos and supported seamless event execution, helping foster a culture of innovation among students.",
+  company: "GirlScript Summer of Code",
+  position: "Contributor",
+  period: "07/2025 - Present",
+  location: "Delhi, India - Remote",
+  description: 
+  "Selected as a Contributor for GirlScript Summer of Code open-source collaboration initiatives in India powered by GirlScript.",
+  highlights: [
+  "Selected as an open-source contributor among thousands of applicants.",
+  "Collaborating on real-world open-source projects with diverse tech stacks (Python, JS, Flask, React, etc.).",
+  "Working closely with mentors to fix bugs, implement features, and improve documentation.",
+  "Contributing to GitHub repositories, submitting PRs, and participating in community discussions.",
+  "Gaining hands-on experience in software development, version control, and project collaboration."
+  ],
   },
   {
-    company: "Edunet Foundation",
-    position: "AI: Transformative Learning with TechSaksham",
-    period: "12/2024 - 01/2025",
-    location: "Bengaluru, Karnataka, India",
-    description:
-      "4-week internship associated with Microsoft, SAP, AICTE, and Edunet Foundation.",
-    highlights: [
-      "Gained foundational skills in Artificial Intelligence technologies",
-      "Worked on an independent project, focusing on solving real-world challenges through AI",
-      "Participated in mentorship sessions with experts from Microsoft and SAP",
-      "Attended masterclasses to enhance technical and analytical skills",
-      "Earned certifications from Microsoft, SAP, AICTE, and Edunet Foundation",
-    ],
-    achievements: [
-      "Developed a project prototype presented to industry experts",
-      "Successfully completed weekly milestones including literature reviews, methodology planning, and implementation",
-    ],
+  company: "Open Source Connect India",
+  position: "Contributor",
+  period: "07/2025 - Present",
+  location: "Delhi, India - Remote",
+  description: 
+  "Selected as a Contributor for Open Source Connect India – one of the largest open-source collaboration initiatives in India powered by NexFellow.",
+  highlights: [
+  "Selected as an open-source contributor among thousands of applicants.",
+  "Collaborating on real-world open-source projects with diverse tech stacks (Python, JS, Flask, React, etc.).",
+  "Working closely with mentors to fix bugs, implement features, and improve documentation.",
+  "Contributing to GitHub repositories, submitting PRs, and participating in community discussions.",
+  "Gaining hands-on experience in software development, version control, and project collaboration."
+  ],
   },
   {
-    company: "Scaler School of Technology",
-    position: "Young Innovators Internship",
-    period: "06/2024 - 09/2024",
-    location: "Bengaluru, Karnataka, India",
-    description:
-      "10-week internship program focused on diverse technology and business skills.",
-    weeklyTasks: [
-      "Week 1: Artificial intelligence for startups",
-      "Week 2: Build a personal brand",
-      "Week 3: No code website building",
-      "Week 4: Ace the art of selling",
-      "Week 5: Develop a discord bot",
-      "Week 6: Learn referral marketing",
-      "Week 7: Master social media marketing",
-      "Week 8: Build a collaborative community",
-      "Week 9: Build Chrome plugins",
-      "Week 10: How to become a leader?",
-    ],
+  company: "Skill Development Club SSIT",
+  position: "Tech Member",
+  period: "03/2025 - Present",
+  location: "Gandhinagar, Gujarat, India - On Site",
+  description:
+  "At Shree Swaminarayan Institute of Technology, we organized and facilitated tech workshops focused on AI, coding, and digital skills. I managed live demos and supported seamless event execution, helping foster a culture of innovation among students.",
+  highlights: [
+    "Organized weekly hands-on workshops on emerging technologies including AI, Web Development, and Machine Learning",
+    "Conducted technical seminars featuring industry experts and alumni to bridge academic-industry gap",
+    "Facilitated coding boot camps and hackathons to enhance practical programming skills among students",
+    "Managed tech talks on topics like prompt engineering, machine learning, and full-stack development",
+    "Coordinated project demonstration sessions allowing students to showcase their innovative solutions"
+  ]
+  },
+  {
+  company: "Edunet Foundation",
+  position: "AI: Transformative Learning with TechSaksham",
+  period: "12/2024 - 01/2025",
+  location: "Bengaluru, Karnataka, India - Remote",
+  description:
+  "4-week internship associated with Microsoft, SAP, AICTE, and Edunet Foundation.",
+  highlights: [
+  "Gained foundational skills in Artificial Intelligence technologies",
+  "Worked on an independent project, focusing on solving real-world challenges through AI",
+  "Participated in mentorship sessions with experts from Microsoft and SAP",
+  "Attended masterclasses to enhance technical and analytical skills",
+  "Earned certifications from Microsoft, SAP, AICTE, and Edunet Foundation",
+  ],
+  achievements: [
+  "Developed a project prototype presented to industry experts",
+  "Successfully completed weekly milestones including literature reviews, methodology planning, and implementation",
+  ],
+  },
+  {
+  company: "Scaler School of Technology",
+  position: "Young Innovators Internship",
+  period: "06/2024 - 09/2024",
+  location: "Bengaluru, Karnataka, India - Remote",
+  description:
+  "10-week internship program focused on diverse technology and business skills.",
+  weeklyTasks: [
+  "Week 1: Artificial intelligence for startups",
+  "Week 2: Build a personal brand",
+  "Week 3: No code website building",
+  "Week 4: Ace the art of selling",
+  "Week 5: Develop a discord bot",
+  "Week 6: Learn referral marketing",
+  "Week 7: Master social media marketing",
+  "Week 8: Build a collaborative community",
+  "Week 9: Build Chrome plugins",
+  "Week 10: How to become a leader?",
+  ],
   },
 ];
 
@@ -80,192 +117,131 @@ export const projects: Project[] = [
   {
     title: "Modern Portfolio Website",
     period: "05/2025",
+    category: 'Portfolio',
+    featured: true, // Is project ko featured banaya hai
     description:
-      "Designed and built a modern, responsive personal portfolio website using React, Tailwind CSS, and Framer Motion.",
-    additionalInfo:
-      "This website features smooth animations, a dark theme with custom accents, responsive design for all devices, and interactive sections showcasing projects, skills, and experiences.",
+      "A modern, responsive personal portfolio built with React, Tailwind CSS, and Framer Motion to showcase my skills and projects.",
+    details: [
+        "Designed with a mobile-first approach ensuring full responsiveness.",
+        "Integrated 3D interactive elements using React Three Fiber.",
+        "Implemented smooth page transitions and scroll-based animations with Framer Motion.",
+        "Optimized for performance and SEO.",
+    ],
     technologies: [
       "React",
       "TypeScript",
       "Tailwind CSS",
       "Framer Motion",
-      "Responsive Design",
+      "Three.js",
     ],
     image:
       "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    link: "https://github.com/pathan-07/ProfessionalPortfolio",
     liveLink: "#",
-    repoLink: "https://github.com/pathan-07/dashbord",
+    repoLink: "https://github.com/pathan-07/Faizan",
   },
   {
     title: "SMS Spam Detection Model",
-    period: "12/2024 - 01/2025",
+    period: "01/2025",
+    category: 'AI/ML',
     description:
-      "Developed an AI-powered SMS spam detection system that leverages Natural Language Processing and TF-IDF vectorization to accurately classify messages as spam or legitimate.",
-    additionalInfo:
-      "The project features a secure web interface built with HTML, CSS, and JavaScript, complete with registration and OTP-based login to ensure robust user authentication and enhanced communication security.",
-    technologies: ["NLP", "Python", "Flask", "HTML/CSS", "JavaScript"],
+      "An AI-powered system using NLP to classify SMS messages as spam or legitimate, with a secure web interface.",
+    details: [
+        "Utilized TF-IDF for text vectorization and trained a Naive Bayes classifier.",
+        "Achieved over 97% accuracy on the test dataset.",
+        "Built a user-friendly frontend with Flask for real-time predictions.",
+        "Implemented OTP-based login for enhanced security.",
+    ],
+    technologies: ["Python", "Flask", "NLP", "Scikit-learn", "HTML/CSS"],
     image:
       "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    link: "https://github.com/pathan-07/SMS-SPAM-DETECTION-USING-NLP",
     liveLink: "https://sms-spam-detect.onrender.com",
     repoLink: "https://github.com/pathan-07/SMS-SPAM-DETECTION-USING-NLP",
   },
   {
     title: "Chrome Plugin Extension",
     period: "09/2024",
+    category: 'Chrome Extension',
     description:
-      "Developed a Chrome extension that provides a floating timer feature for screen recording and activity tracking.",
-    additionalInfo:
-      "The extension allows users to monitor their screen time efficiently with an easy-to-drag timer interface, enhancing productivity and user experience during tutorials, presentations, or online sessions.",
+      "A productivity-focused Chrome extension providing a floating timer for screen recording and activity tracking.",
+    details: [
+        "Developed using vanilla JavaScript and Chrome Extension APIs (Manifest V3).",
+        "The timer is draggable across the screen for user convenience.",
+        "Lightweight and optimized for minimal performance impact on the browser.",
+        "Simple UI for easy start, stop, and reset functionality.",
+    ],
     technologies: ["JavaScript", "HTML/CSS", "Chrome API", "UI/UX"],
     image:
       "https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    link: "https://github.com/pathan-07/time-Tracker-Chrome-Plug-in-",
     repoLink: "https://github.com/pathan-07/time-Tracker-Chrome-Plug-in-",
   },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Programming & Development",
+    name: "Frontend Development",
     icon: React.createElement(Code, {
-      className: "h-8 w-8 text-[#6366F1] mr-4",
+      className: "h-8 w-8 text-blue-400 mr-4",
     }),
+    color: "blue",
     skills: [
-      { name: "Python", level: 60 },
-      { name: "HTML/CSS", level: 80 },
-      { name: "JavaScript", level: 30 },
-      { name: "Java", level: 45 },
-      { name: "C Programming", level: 60 },
-      { name: "Flask", level: 30 },
-      { name: "Vibe Coding", level: 70 },
-    ],  },
-  {
-    name: "AI & Data Science",
-    icon: React.createElement(Brain, {
-      className: "h-8 w-8 text-[#6366F1] mr-4",
-    }),
-    skills: [
-      { name: "Natural Language Processing", level: 45 },
-      { name: "Jupyter", level: 45 },
-      { name: "Machine Learning", level: 45 },
-      { name: "Data Analysis", level: 45 },
-      { name: "Problem Analysis", level: 85 },
+      { name: "React", level: 65, years: 1.5, type: "frontend", featured: true },
+      { name: "Vibe Coding", level: 75, years: 2, type: "frontend", featured: true },
     ],
   },
   {
-    name: "Generative AI & LLMs",
-    icon: React.createElement(Brain, {
-      className: "h-8 w-8 text-[#6366F1] mr-4",
-    }),
-    skills: [
-      { name: "Foundations of Gen AI", level: 60 },
-      { name: "Large Language Models (LLMs)", level: 70 },
-      { name: "Prompt Engineering", level: 85 },
-      { name: "AI Tool Selection", level: 80 },
-      { name: "Master Prompt Technique", level: 80 },
-    ],
-  },
-  {
-    name: "AI Agents & Automation",
-    icon: React.createElement(Cpu, {
-      className: "h-8 w-8 text-[#6366F1] mr-4",
-    }),
-    skills: [
-      { name: "Personalized AI Agents", level: 35 },
-      { name: "OpenAI Assistant API", level: 45 },
-      { name: "Make.com Automation", level: 50 },
-      { name: "ChatGPT API Integration", level: 40 },
-    ],
-  },
-  {
-    name: "AI Visual & Creative Tools",
-    icon: React.createElement(Globe, {
-      className: "h-8 w-8 text-[#6366F1] mr-4",
-    }),
-    skills: [
-      { name: "MidJourney Prompting", level: 80 },
-      { name: "AI Image Generation", level: 85 },
-      { name: "Visual Storytelling", level: 80 },
-      { name: "AI Video Creation", level: 70 },
-    ],
-  },
-  {
-    name: "Advanced AI Engineering",
+    name: "Backend Development",
     icon: React.createElement(Terminal, {
-      className: "h-8 w-8 text-[#6366F1] mr-4",
+      className: "h-8 w-8 text-green-400 mr-4",
     }),
+    color: "green",
     skills: [
-      { name: "RAG Systems", level: 30 },
-      { name: "FAISS Integration", level: 25 },
-      { name: "Multi-agent AI Systems", level: 40 },
+      { name: "Python", level: 70, years: 2, type: "backend", featured: true },
+      { name: "Flask", level: 60, years: 1, type: "backend", featured: true },
+      { name: "Java", level: 60, years: 0.5, type: "backend", featured: true },
+      { name: "C Programming", level: 70, years: 0.5, type: "backend", featured: true },
     ],
   },
   {
-    name: "Soft Skills & Management",
-    icon: React.createElement(Users, {
-      className: "h-8 w-8 text-[#6366F1] mr-4",
+    name: "AI/ML & Data Science",
+    icon: React.createElement(Brain, {
+      className: "h-8 w-8 text-purple-400 mr-4",
     }),
+    color: "purple",
     skills: [
-      { name: "Communication", level: 90 },
-      { name: "Project Management", level: 75 },
-      { name: "Public Speaking", level: 85 },
-      { name: "Creative Problem Solving", level: 80 },
-      { name: "Social Media Marketing", level: 45 },
+      { name: "Machine Learning", level: 55, years: 1, type: "ai", featured: true },
+      { name: "Natural Language Processing", level: 45, years: 0.5, type: "ai", featured: true },
+      { name: "Prompt Engineering", level: 85, years: 3, type: "ai", featured: true },
+      { name: "Large Language Models", level: 70, years: 2, type: "ai", featured: true },
+      { name: "OpenAI API", level: 60, years: 1, type: "ai", featured: true },
+      { name: "RAG Systems", level: 40, years: 0.5, type: "ai", featured: true },
+      { name: "Multi-agent AI Systems", level: 50, years: 0.5, type: "ai", featured: true },
+      { name: "AI Image Generation", level: 65, years: 1.5, type: "ai", featured: true },
+      { name: "MidJourney", level: 70, years: 1, type: "ai", featured: true },
+    ],
+  },
+  {
+    name: "Developer Tools",
+    icon: React.createElement(Cloud, {
+      className: "h-8 w-8 text-cyan-400 mr-4",
+    }),
+    color: "cyan",
+    skills: [
+      { name: "Git & Version Control", level: 65, years: 2, type: "emerging", featured: true },
+      { name: "AI Tool Integration", level: 60, years: 1, type: "emerging", featured: true },
     ],
   },
 ];
 
 export const allSkills: string[] = [
-  "Analytical Skills",
-  "API",
-  "CSS",
-  "Communication",
-  "Creative Problem Solving",
-  "Flask",
-  "HTML",
-  "Java",
-  "JavaScript",
-  "JSON",
-  "Jupyter",
-  "Machine Learning",
-  "NLP",
-  "Problem Analysis",
-  "Project Management",
-  "Public Speaking",
-  "Python",
-  "Social Media Marketing",
-  "Technology Integration",
-  "Vibe Coding",
-  "Website Building",
-  "C Programming",
-  "Foundations of Gen AI",
-  "Large Language Models (LLMs)",
-  "Prompt Engineering",
-  "AI Tool Selection",
-  "Master Prompt Technique",
-  "Context-Aware Prompting",
-  "AI Problem Solving",
-  "Personalized AI Agents",
-  "OpenAI Assistant API",
-  "Workflow Automation",
-  "Make.com (Integromat)",
-  "ChatGPT API Integration",
-  "Multi-step AI Workflows",
-  "Web App AI Integration",
-  "MidJourney Advanced",
-  "AI Image Generation",
-  "Artistic Style Control",
-  "AI Video Creation",
-  "AI Storyboarding",
-  "Visual Storytelling",
-  "RAG Systems",
-  "FAISS Vector Retrieval",
-  "Multi-agent AI Systems",
-  "LLM Data Pipeline Integration",
-  "AI Workflow Design",
-  "GenAI Tool Experimentation",
+  // Frontend Development
+  "React", "Vibe Coding",
+  // Backend Development  
+  "Python", "Flask", "Java", "C Programming",
+  // AI/ML & Data Science
+  "Machine Learning", "Natural Language Processing", "Prompt Engineering", "Large Language Models",
+  "OpenAI API", "RAG Systems", "Multi-agent AI Systems", "AI Image Generation", "MidJourney",
+  // Developer Tools
+  "Git & Version Control", "AI Tool Integration"
 ];
 
 export const education: Education[] = [
@@ -278,7 +254,7 @@ export const education: Education[] = [
   },
   {
     degree: "12th in Science",
-    field: "",
+    field: "PCM",
     institution: "Hosanna Mission High Secondary School",
     period: "05/2022 - 03/2023",
   },

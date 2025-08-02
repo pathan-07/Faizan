@@ -2,118 +2,83 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeIn, staggerContainer } from "../lib/motion";
 import { education, certifications } from "../lib/data";
+import { GraduationCap, Award, Calendar, University } from "lucide-react";
+import FloatingShapes from "./effects/FloatingShapes";
 
 const EducationSection = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   return (
     <section
       id="education"
       ref={sectionRef}
-      className="section-padding"
+      className="section-padding bg-gradient-to-b from-background to-muted/20 relative"
     >
-      <div className="container mx-auto px-6">
-        <motion.h2
-          variants={fadeIn("up", "tween", 0.1, 1)}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          className="text-3xl font-bold font-poppins text-center mb-16"
-        >
-          <span className="gradient-text">Education & Certifications</span>
-        </motion.h2>
-
+      <FloatingShapes />
+      <div className="section-container relative z-10">
         <motion.div
           variants={staggerContainer(0.1, 0.2)}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
         >
-          <motion.div
-            variants={fadeIn("right", "tween", 0.2, 1)}
+          <motion.h2
+            variants={fadeIn("up", "tween", 0.1, 1)}
+            className="text-responsive-xl font-bold font-poppins text-center mb-16"
           >
-            <h3 className="text-xl font-bold font-poppins mb-8 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-[#6366F1] mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                />
-              </svg>
-              Education
-            </h3>
+            <span className="gradient-text">Education & Certifications</span>
+          </motion.h2>
 
-            <div className="space-y-6">
-              {education.map((edu, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeIn("up", "tween", 0.3 + index * 0.1, 1)}
-                  className="bg-[#2D2D2D] p-6 rounded-lg shadow-lg card-hover"
-                >
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="text-lg font-bold">{edu.degree}</h4>
-                    <span className="text-[#6366F1] text-sm">{edu.period}</span>
+          {/* Main Education Card */}
+          <motion.div variants={fadeIn("up", "tween", 0.2, 1)} className="mb-16">
+            {education.slice(0, 1).map((edu) => (
+              <div key={edu.degree} className="modern-card p-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-1 flex justify-center">
+                  <div className="bg-primary/10 p-4 rounded-full">
+                    <GraduationCap className="w-8 h-8 text-primary" />
                   </div>
-                  <p className="text-gray-300 mb-1">{edu.field}</p>
-                  <p className="text-gray-400">{edu.institution}</p>
-                  {edu.university && (
-                    <p className="text-gray-400">{edu.university}</p>
-                  )}
-                </motion.div>
-              ))}
-            </div>
+                </div>
+                <div className="md:col-span-8 text-center md:text-left">
+                  <h3 className="text-2xl font-bold font-poppins text-foreground">{edu.degree}</h3>
+                  <p className="text-lg text-muted-foreground">{edu.field}</p>
+                </div>
+                <div className="md:col-span-3 text-center md:text-right">
+                   <div className="flex items-center justify-center md:justify-end gap-2 text-muted-foreground mb-1">
+                      <University className="w-4 h-4" />
+                      <span>{edu.institution}</span>
+                   </div>
+                   <div className="flex items-center justify-center md:justify-end gap-2 text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      <span>{edu.period}</span>
+                   </div>
+                </div>
+              </div>
+            ))}
           </motion.div>
 
-          <motion.div
-            variants={fadeIn("left", "tween", 0.2, 1)}
-          >
-            <h3 className="text-xl font-bold font-poppins mb-8 flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-[#6366F1] mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-              Certifications
-            </h3>
-
-            <div className="space-y-4">
+          {/* Certifications Grid */}
+          <motion.div variants={fadeIn("up", "tween", 0.3, 1)}>
+            <h3 className="text-2xl font-bold text-center mb-12">Licenses & Certifications</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {certifications.map((cert, index) => (
                 <motion.div
-                  key={index}
-                  variants={fadeIn("up", "tween", 0.3 + index * 0.1, 1)}
-                  className="bg-[#2D2D2D] p-4 rounded-lg shadow-lg flex items-center card-hover"
+                  key={cert.name}
+                  variants={fadeIn("up", "tween", 0.4 + index * 0.1, 1)}
+                  className="modern-card p-6 flex items-start gap-4 group"
                 >
-                  <div className="bg-[#1A1A1A] p-3 rounded-lg mr-4">
-                    {cert.icon}
+                  <div className="bg-primary/10 p-3 rounded-lg transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                    <Award className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-bold">{cert.name}</h4>
-                    <p className="text-gray-400 text-sm">
-                      {cert.issuer} ({cert.period})
-                    </p>
+                    <h4 className="font-bold text-foreground">{cert.name}</h4>
+                    <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{cert.period}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
+
         </motion.div>
       </div>
     </section>

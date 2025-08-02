@@ -14,11 +14,13 @@ export interface Experience {
 export interface Project {
   title: string;
   period: string;
+  category: 'AI/ML' | 'Web App' | 'Chrome Extension' | 'Portfolio'; // Naya field add kiya hai
+  featured?: boolean; // Naya optional field
   description: string;
-  additionalInfo?: string;
+  details: string[]; // additionalInfo ko details se replace kiya hai
   technologies: string[];
   image: string;
-  link: string;
+  images?: string[]; // Modal ke liye extra images
   liveLink?: string;
   repoLink?: string;
 }
@@ -26,11 +28,15 @@ export interface Project {
 export interface Skill {
   name: string;
   level: number;
+  years?: number;
+  type?: 'frontend' | 'backend' | 'ai' | 'design' | 'management' | 'emerging';
+  featured?: boolean;
 }
 
 export interface SkillCategory {
   name: string;
   icon: React.ReactNode;
+  color?: string;
   skills: Skill[];
 }
 

@@ -10,6 +10,7 @@ import ContactSection from "@/components/ContactSection";
 import PageTransition from "@/components/PageTransition";
 import LoadingAnimation from "@/components/LoadingAnimation";
 import SEO from "@/components/SEO";
+import QuoteSection from "@/components/QuoteSection"; // I've added the missing import
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,6 +75,7 @@ const Home = () => {
           <ProjectsSection />
           <SkillsSection />
           <EducationSection />
+          <QuoteSection />
           <ContactSection />
         </Layout>
       </PageTransition>
