@@ -52,7 +52,7 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null; i
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl p-0">
+      <DialogContent className="max-w-3xl p-0 w-[calc(100%-2rem)] max-h-[90vh] overflow-auto">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="p-6 md:p-8 order-2 md:order-1">
             <DialogHeader>
@@ -79,7 +79,7 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null; i
                 ))}
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               {project.liveLink && project.liveLink !== "#" && (
                 <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex-1">
                   <Button className="w-full btn-primary"><ExternalLink className="mr-2 h-4 w-4" /> Live Demo</Button>
@@ -92,7 +92,7 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null; i
               )}
             </div>
           </div>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 max-h-[300px] md:max-h-none">
              <img src={project.image} alt={project.title} className="w-full h-full object-cover md:rounded-r-lg" />
           </div>
         </div>
