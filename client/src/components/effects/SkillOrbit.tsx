@@ -6,7 +6,14 @@ import { glowPulseAnimation, orbitAnimation } from '../../lib/motion';
 
 // --- CenterSphere Component ---
 // Enhanced center sphere with glow effect
-const CenterSphere = ({ color, onClick, hovered, setHovered }) => {
+interface CenterSphereProps {
+  color: string;
+  onClick: () => void;
+  hovered: boolean;
+  setHovered: (hovered: boolean) => void;
+}
+
+const CenterSphere = ({ color, onClick, hovered, setHovered }: CenterSphereProps) => {
   const sphereRef = useRef<THREE.Mesh>(null);
   const glowRef = useRef<THREE.Mesh>(null);
   
@@ -207,11 +214,11 @@ const OrbitalParticle = ({ radius, speed, color }: { radius: number; speed: numb
 const SkillOrbitScene = ({ skills, onCategoryChange, color }: { skills: string[], onCategoryChange: () => void, color: string }) => {
   const groupRef = useRef<THREE.Group>(null);
   const { viewport } = useThree();
-  const mouse = useRef({ x: 0, y: 0 });
+  const mouse = useRef<{ x: number, y: number }>({ x: 0, y: 0 });
   const [sphereHovered, setSphereHovered] = useState(false);
 
   // Mouse movement ko track karna
-  const handleMouseMove = (event: MouseEvent) => {
+  const handleMouseMove = (event: globalThis.MouseEvent) => {
     mouse.current = {
       x: (event.clientX / viewport.width) * 2 - 1,
       y: -(event.clientY / viewport.height) * 2 + 1,
