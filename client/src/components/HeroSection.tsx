@@ -21,7 +21,7 @@ const HeroSection = () => {
   ];
 
   const stats = [
-    { label: "Years Learning", value: "3+", icon: Calendar },
+    { label: "Years Learning", value: "2+", icon: Calendar },
     { label: "Internships", value: "3", icon: Briefcase },
     { label: "Projects", value: "3+", icon: Code },
     { label: "Skills", value: "25+", icon: Brain }
