@@ -28,6 +28,21 @@ import {
 
 export const experiences: Experience[] = [
   {
+  company: "Google Developer Groups (GDG)",
+  position: "Organizer",
+  period: "09/2025 - Present",
+  location: "Gandhinagar, Gujarat, India - Hybrid",
+  description: 
+  "Serving as an Organizer for Google Developer Groups (GDG), a community-driven initiative focused on developer growth and technology advancement.",
+  highlights: [
+  "Leading community engagement initiatives to foster a thriving tech ecosystem in the region.",
+  "Organizing technical workshops, coding sessions, and hands-on labs on Google technologies.",
+  "Coordinating developer-focused events including tech talks, hackathons, and networking sessions.",
+  "Managing collaborations with industry professionals and academic institutions.",
+  "Facilitating knowledge sharing on Google's latest tools, frameworks, and best practices."
+  ],
+  },
+  {
   company: "GirlScript Summer of Code",
   position: "Contributor",
   period: "07/2025 - Present",
