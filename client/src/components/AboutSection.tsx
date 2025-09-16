@@ -57,13 +57,6 @@ const timelineData: TimelineItem[] = [
     <Briefcase className="w-5 h-5" />, "Gandhinagar, Gujarat, India"
   ),
   createTimelineItem(
-    "current", "current", "Tech Member - Skill Development Club", "SSIT", "Present",
-    "Leading tech workshops and fostering innovation culture among students",
-    ["Organizing workshops on AI & coding", "Conducting technical seminars", "Facilitating hackathons", 
-     "Managing tech talks", "Coordinating project showcases"],
-    <Briefcase className="w-5 h-5" />, "Gujarat, India"
-  ),
-  createTimelineItem(
     "opensource1", "current", "Open Source Contributor", "GirlScript Summer of Code", "Present",
     "Selected contributor for one of India's largest open-source initiatives",
     ["Selected among thousands of applicants", "Working with diverse tech stacks", "Implementing features & fixing bugs", 
@@ -76,6 +69,13 @@ const timelineData: TimelineItem[] = [
     ["Working on real-world repositories", "Improving documentation & code", "Participating in discussions", 
      "Gaining version control expertise", "Building collaboration skills"],
     <Github className="w-5 h-5" />
+  ),
+    createTimelineItem(
+    "current", "current", "Tech Member - Skill Development Club", "SSIT", "2025",
+    "Leading tech workshops and fostering innovation culture among students",
+    ["Organizing workshops on AI & coding", "Conducting technical seminars", "Facilitating hackathons", 
+     "Managing tech talks", "Coordinating project showcases"],
+    <Briefcase className="w-5 h-5" />, "Gujarat, India"
   ),
   createTimelineItem(
     "techsaksham", "internship", "AI: Transformative Learning Internship", "TechSaksham (Microsoft, SAP, AICTE)", "2024",
