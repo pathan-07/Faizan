@@ -75,7 +75,7 @@ export const experiences: Experience[] = [
   {
   company: "Skill Development Club SSIT",
   position: "Tech Member",
-  period: "03/2025 - Present",
+  period: "03/2025 - 09/2025",
   location: "Gandhinagar, Gujarat, India - On Site",
   description:
   "At Shree Swaminarayan Institute of Technology, we organized and facilitated tech workshops focused on AI, coding, and digital skills. I managed live demos and supported seamless event execution, helping foster a culture of innovation among students.",
