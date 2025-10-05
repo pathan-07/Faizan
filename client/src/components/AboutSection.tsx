@@ -64,7 +64,7 @@ const timelineData: TimelineItem[] = [
     <Github className="w-5 h-5" />
   ),
   createTimelineItem(
-    "opensource2", "current", "Open Source Contributor", "Open Source Connect India", "Present",
+    "opensource2", "current", "Open Source Contributor", "Open Source Connect India", "2025",
     "Contributing to collaborative open-source projects powered by NexFellow",
     ["Working on real-world repositories", "Improving documentation & code", "Participating in discussions", 
      "Gaining version control expertise", "Building collaboration skills"],

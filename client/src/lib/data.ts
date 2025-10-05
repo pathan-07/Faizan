@@ -60,7 +60,7 @@ export const experiences: Experience[] = [
   {
   company: "Open Source Connect India",
   position: "Contributor",
-  period: "07/2025 - Present",
+  period: "07/2025 - 10/2025",
   location: "Delhi, India - Remote",
   description: 
   "Selected as a Contributor for Open Source Connect India – one of the largest open-source collaboration initiatives in India powered by NexFellow.",
