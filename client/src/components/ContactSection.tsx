@@ -1,170 +1,189 @@
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeIn, staggerContainer } from "../lib/motion";
-import { contactInfo, socialLinks } from "../lib/data";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import * as z from "zod";
+import emailjs from "@emailjs/browser";
+import { Mail, MapPin, Send, Loader2, Github, Linkedin, Twitter } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from '@emailjs/browser';
-import { Send } from "lucide-react";
 import FloatingShapes from "./effects/FloatingShapes";
 
-// EmailJS configuration from environment variables
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+type FormData = z.infer<typeof formSchema>;
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { name: "", email: "", subject: "", message: "" },
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
   });
 
-  async function onSubmit(data: ContactFormValues) {
+  const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: data.name,
           from_email: data.email,
-          to_name: "Faizan Khan", // Your Name
-          subject: data.subject,
           message: data.message,
         },
-        EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
+
       toast({
-        title: "Message Sent!",
+        title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      form.reset();
+      reset();
     } catch (error) {
       toast({
-        title: "Error Sending Message",
-        description: "Something went wrong. Please try again later.",
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
         variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
-  }
+  };
+
+  const socialLinks = [
+    { name: "GitHub", icon: Github, href: "https://github.com/pathan-07" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/pathan-mo-faizan-khan" },
+    { name: "Twitter", icon: Twitter, href: "https://x.com/its_khan_070" },
+  ];
 
   return (
-    <section id="contact" ref={sectionRef} className="section-padding gradient-bg relative">
+    <section id="contact" ref={sectionRef} className="section-padding relative overflow-hidden bg-background">
       <FloatingShapes />
-      <div className="section-container relative z-10">
-        <motion.div variants={staggerContainer(0.1, 0.2)} initial="hidden" animate={isInView ? "show" : "hidden"}>
-          <motion.h2 variants={fadeIn("up", "tween", 0.1, 1)} className="text-responsive-xl font-bold font-poppins text-center mb-16">
-            <span className="gradient-text">Get In Touch</span>
-          </motion.h2>
-
-          <motion.div variants={fadeIn("up", "tween", 0.2, 1)} className="modern-card lg:p-12 p-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left side: Contact Info */}
-            <div className="flex flex-col">
-              <h3 className="text-2xl font-bold mb-4">Let's build something great.</h3>
-              <p className="text-muted-foreground mb-8">
-                I'm currently available for freelance projects and open to discussing new opportunities. Feel free to reach out.
+      <div className="container relative z-10">
+        <motion.div
+          variants={staggerContainer(0.1, 0.2)}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center"
+        >
+          {/* Left Column: Info */}
+          <motion.div variants={fadeIn("right", "tween", 0.1, 1)} className="space-y-8">
+            <div>
+              <h2 className="text-4xl md:text-6xl font-bold font-poppins mb-6">
+                Let's work <br />
+                <span className="gradient-text">together.</span>
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-md leading-relaxed">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </p>
-              <div className="space-y-6 mb-8">
-                {contactInfo.map((info) => (
-                  <div key={info.title} className="flex items-center gap-4 group">
-                    <div className="bg-muted p-3 rounded-lg transition-colors duration-300 group-hover:bg-primary/20">
-                      {React.isValidElement(info.icon) 
-                        ? React.cloneElement(info.icon as React.ReactElement, { className: "w-5 h-5 text-primary" })
-                        : info.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground">{info.title}</h4>
-                      {info.isLink ? (
-                        <a href={info.link} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-muted-foreground">{info.value}</p>
-                      )}
-                    </div>
-                  </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 group modern-card p-4 rounded-xl">
+                <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Email me at</p>
+                  <a href="mailto:pathanfaizankhan0123@gmail.com" className="text-lg font-medium hover:text-primary transition-colors">
+                    pathanfaizankhan0123@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 group modern-card p-4 rounded-xl">
+                <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Based in</p>
+                  <p className="text-lg font-medium">Gujarat, India</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-8 border-t border-border">
+              <p className="text-sm text-muted-foreground mb-4">Connect with me</p>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full border border-border hover:border-primary hover:bg-primary/5 hover:text-primary transition-all duration-300"
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
                 ))}
               </div>
-              <div className="mt-auto">
-                 <h4 className="font-semibold mb-4 text-foreground">Follow Me</h4>
-                 <div className="flex space-x-4">
-                    {socialLinks.map((social) => (
-                      <a
-                        key={social.name}
-                        href={social.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-muted rounded-lg text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                        aria-label={social.name}
-                      >
-                        {social.icon}
-                      </a>
-                    ))}
-                  </div>
-              </div>
             </div>
+          </motion.div>
 
-            {/* Right side: Contact Form */}
-            <div>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField control={form.control} name="name" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Your Name</FormLabel>
-                      <FormControl><Input placeholder="John Doe" {...field} /></FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )} />
-                  <FormField control={form.control} name="email" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Your Email</FormLabel>
-                      <FormControl><Input type="email" placeholder="john.doe@example.com" {...field} /></FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )} />
-                  <FormField control={form.control} name="subject" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Subject</FormLabel>
-                      <FormControl><Input placeholder="Project Inquiry" {...field} /></FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )} />
-                  <FormField control={form.control} name="message" render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Your Message</FormLabel>
-                      <FormControl><Textarea placeholder="Hi Faizan, I'd like to discuss..." className="min-h-[120px]" {...field} /></FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )} />
-                  <Button type="submit" className="w-full btn-primary" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    <Send className="w-4 h-4 ml-2" />
-                  </Button>
-                </form>
-              </Form>
-            </div>
+          {/* Right Column: Form */}
+          <motion.div variants={fadeIn("left", "tween", 0.2, 1)}>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-8 rounded-2xl modern-card">
+              <div className="space-y-2">
+                <label className="text-sm font-medium ml-1">Name</label>
+                <Input
+                  {...register("name")}
+                  placeholder="John Doe"
+                  className="bg-background/50 border-border focus:border-primary h-12 rounded-xl"
+                />
+                {errors.name && <p className="text-red-500 text-xs ml-1">{errors.name.message}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium ml-1">Email</label>
+                <Input
+                  {...register("email")}
+                  placeholder="john@example.com"
+                  className="bg-background/50 border-border focus:border-primary h-12 rounded-xl"
+                />
+                {errors.email && <p className="text-red-500 text-xs ml-1">{errors.email.message}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium ml-1">Message</label>
+                <Textarea
+                  {...register("message")}
+                  placeholder="Tell me about your project..."
+                  className="bg-background/50 border-border focus:border-primary min-h-[150px] rounded-xl resize-none"
+                />
+                {errors.message && <p className="text-red-500 text-xs ml-1">{errors.message.message}</p>}
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full h-12 rounded-xl btn-primary text-base font-medium"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message <Send className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </form>
           </motion.div>
         </motion.div>
       </div>

@@ -34,70 +34,70 @@ const AboutSection = () => {
   };
 
   // Using a more compact and maintainable approach to timeline data
-const createTimelineItem = (
-  id: string, 
-  type: 'education' | 'internship' | 'current',
-  title: string,
-  organization: string,
-  period: string,
-  description: string,
-  highlights: string[],
-  icon: React.ReactNode,
-  location: string = "Remote"
-): TimelineItem => ({
-  id, type, title, organization, location, period, description, highlights, icon
-});
+  const createTimelineItem = (
+    id: string,
+    type: 'education' | 'internship' | 'current',
+    title: string,
+    organization: string,
+    period: string,
+    description: string,
+    highlights: string[],
+    icon: React.ReactNode,
+    location: string = "Remote"
+  ): TimelineItem => ({
+    id, type, title, organization, location, period, description, highlights, icon
+  });
 
-const timelineData: TimelineItem[] = [
-  createTimelineItem(
-    "gdg", "current", "Organizer", "Google Developer Groups (GDG)", "Present",
-    "Community-driven initiative focused on developer growth and technology advancement",
-    ["Leading community engagement initiatives", "Organizing technical workshops", "Coordinating events and hackathons", 
-     "Managing industry collaborations", "Facilitating knowledge sharing"],
-    <Briefcase className="w-5 h-5" />, "Gandhinagar, Gujarat, India"
-  ),
-  createTimelineItem(
-    "opensource1", "current", "Open Source Contributor", "GirlScript Summer of Code", "Present",
-    "Selected contributor for one of India's largest open-source initiatives",
-    ["Selected among thousands of applicants", "Working with diverse tech stacks", "Implementing features & fixing bugs", 
-     "Submitting PRs & participating in discussions", "Collaborating with mentors"],
-    <Github className="w-5 h-5" />
-  ),
-  createTimelineItem(
-    "opensource2", "current", "Open Source Contributor", "Open Source Connect India", "2025",
-    "Contributing to collaborative open-source projects powered by NexFellow",
-    ["Working on real-world repositories", "Improving documentation & code", "Participating in discussions", 
-     "Gaining version control expertise", "Building collaboration skills"],
-    <Github className="w-5 h-5" />
-  ),
+  const timelineData: TimelineItem[] = [
     createTimelineItem(
-    "current", "current", "Tech Member - Skill Development Club", "SSIT", "2025",
-    "Leading tech workshops and fostering innovation culture among students",
-    ["Organizing workshops on AI & coding", "Conducting technical seminars", "Facilitating hackathons", 
-     "Managing tech talks", "Coordinating project showcases"],
-    <Briefcase className="w-5 h-5" />, "Gujarat, India"
-  ),
-  createTimelineItem(
-    "techsaksham", "internship", "AI: Transformative Learning Internship", "TechSaksham (Microsoft, SAP, AICTE)", "2024",
-    "Joint initiative focusing on AI technologies and transformative learning approaches",
-    ["Solving real-world challenges with AI", "Attending mentorship sessions", "Participating in masterclasses", 
-     "Developing project prototypes", "Earning certifications"],
-    <Code className="w-5 h-5" />
-  ),
-  createTimelineItem(
-    "scaler", "internship", "Young Innovators Program 2.0", "Scaler School of Technology", "2024",
-    "Gained hands-on experience in innovative solutions and modern development practices",
-    ["Working with AI for startups", "Building no-code websites", "Developing Discord bots", 
-     "Creating Chrome plugins", "Learning leadership skills"],
-    <Code className="w-5 h-5" />
-  ),
-  createTimelineItem(
-    "education", "education", "Bachelor of Engineering - Computer Science", "Shree Swaminarayan Institute of Technology", "2023 - 2027",
-    "Pursuing B.E. in Computer Science with focus on AI, ML, and Software Development",
-    ["Core CS fundamentals", "Core Python With Data Science", "Software engineering practices"],
-    <GraduationCap className="w-5 h-5" />, "Gandhinagar, Gujarat, India"
-  )
-];
+      "gdg", "current", "Organizer", "Google Developer Groups (GDG)", "Present",
+      "Community-driven initiative focused on developer growth and technology advancement",
+      ["Leading community engagement initiatives", "Organizing technical workshops", "Coordinating events and hackathons",
+        "Managing industry collaborations", "Facilitating knowledge sharing"],
+      <Briefcase className="w-5 h-5" />, "Gandhinagar, Gujarat, India"
+    ),
+    createTimelineItem(
+      "opensource1", "current", "Open Source Contributor", "GirlScript Summer of Code", "Present",
+      "Selected contributor for one of India's largest open-source initiatives",
+      ["Selected among thousands of applicants", "Working with diverse tech stacks", "Implementing features & fixing bugs",
+        "Submitting PRs & participating in discussions", "Collaborating with mentors"],
+      <Github className="w-5 h-5" />
+    ),
+    createTimelineItem(
+      "opensource2", "current", "Open Source Contributor", "Open Source Connect India", "2025",
+      "Contributing to collaborative open-source projects powered by NexFellow",
+      ["Working on real-world repositories", "Improving documentation & code", "Participating in discussions",
+        "Gaining version control expertise", "Building collaboration skills"],
+      <Github className="w-5 h-5" />
+    ),
+    createTimelineItem(
+      "current", "current", "Tech Member - Skill Development Club", "SSIT", "2025",
+      "Leading tech workshops and fostering innovation culture among students",
+      ["Organizing workshops on AI & coding", "Conducting technical seminars", "Facilitating hackathons",
+        "Managing tech talks", "Coordinating project showcases"],
+      <Briefcase className="w-5 h-5" />, "Gujarat, India"
+    ),
+    createTimelineItem(
+      "techsaksham", "internship", "AI: Transformative Learning Internship", "TechSaksham (Microsoft, SAP, AICTE)", "2024",
+      "Joint initiative focusing on AI technologies and transformative learning approaches",
+      ["Solving real-world challenges with AI", "Attending mentorship sessions", "Participating in masterclasses",
+        "Developing project prototypes", "Earning certifications"],
+      <Code className="w-5 h-5" />
+    ),
+    createTimelineItem(
+      "scaler", "internship", "Young Innovators Program 2.0", "Scaler School of Technology", "2024",
+      "Gained hands-on experience in innovative solutions and modern development practices",
+      ["Working with AI for startups", "Building no-code websites", "Developing Discord bots",
+        "Creating Chrome plugins", "Learning leadership skills"],
+      <Code className="w-5 h-5" />
+    ),
+    createTimelineItem(
+      "education", "education", "Bachelor of Engineering - Computer Science", "Shree Swaminarayan Institute of Technology", "2023 - 2027",
+      "Pursuing B.E. in Computer Science with focus on AI, ML, and Software Development",
+      ["Core CS fundamentals", "Core Python With Data Science", "Software engineering practices"],
+      <GraduationCap className="w-5 h-5" />, "Gandhinagar, Gujarat, India"
+    )
+  ];
 
   const skills = [
     { name: "AI & ML", color: "skill-ai" },
@@ -157,20 +157,20 @@ const timelineData: TimelineItem[] = [
             {/* Introduction - More Compact */}
             <div className="prose prose-sm dark:prose-invert max-w-none mb-5">
               <p className="text-foreground/90 leading-relaxed mb-4 text-sm">
-                Hello! I'm <strong className="text-primary">Faizan</strong>, a passionate Computer Science student 
-                currently pursuing my Bachelor of Engineering at the Shree Swaminarayan Institute of Technology, 
+                Hello! I'm <strong className="text-primary">Faizan</strong>, a passionate Computer Science student
+                currently pursuing my Bachelor of Engineering at the Shree Swaminarayan Institute of Technology,
                 affiliated with Gujarat Technological University.
               </p>
-              
+
               <p className="text-foreground/90 leading-relaxed mb-4 text-sm">
-                My journey in technology has been shaped by hands-on experiences through prestigious internships, 
-                including the <span className="text-accent font-medium">Scaler School of Technology's Young Innovators Program 2.0</span> and 
-                <span className="text-accent font-medium"> TechSaksham's AI: Transformative Learning Internship</span>.
+                My journey in technology has been shaped by hands-on experiences through prestigious internships,
+                including the <span className="text-primary font-medium">Scaler School of Technology's Young Innovators Program 2.0</span> and
+                <span className="text-primary font-medium"> TechSaksham's AI: Transformative Learning Internship</span>.
               </p>
-              
+
               <p className="text-foreground/90 leading-relaxed mb-4 text-sm">
-                I'm also proud to serve as an <span className="text-primary font-medium">Organizer for Google Developer Groups (GDG)</span>, 
-                where I help lead community initiatives, organize technical workshops, and coordinate events 
+                I'm also proud to serve as an <span className="text-primary font-medium">Organizer for Google Developer Groups (GDG)</span>,
+                where I help lead community initiatives, organize technical workshops, and coordinate events
                 that foster growth and innovation in the developer community.
               </p>
 
@@ -182,12 +182,12 @@ const timelineData: TimelineItem[] = [
                   transition={{ duration: 0.3 }}
                 >
                   <p className="text-foreground/90 leading-relaxed mb-3 text-sm">
-                    As a tech member in the Skill Development Club at SSIT, I organize workshops 
+                    As a tech member in the Skill Development Club at SSIT, I organize workshops
                     focused on AI, coding, and digital skills, while continuously learning from peers and industry experts.
                   </p>
-                  
+
                   <p className="text-foreground/90 leading-relaxed mb-3 text-sm">
-                    I'm passionate about the intersection of AI and web development, 
+                    I'm passionate about the intersection of AI and web development,
                     exploring how these technologies can create meaningful solutions to real-world problems.
                   </p>
                 </motion.div>
@@ -269,23 +269,30 @@ const timelineData: TimelineItem[] = [
             {/* Profile Photo */}
             <div className="relative mb-5">
               <div className="relative group">
-                <div className="glass-card p-1.5 rounded-2xl overflow-hidden">
-                  <img
-                    src="/assets/images/profile-photo.jpg"
-                    alt="Pathan Mo. Faizan Khan"
-                    className="rounded-xl w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                <div className="modern-card p-2 rounded-full overflow-hidden bg-card/50 backdrop-blur-sm border-border">
+                  <div className="relative aspect-square rounded-full overflow-hidden bg-muted/50 flex items-center justify-center">
+                    <img
+                      src="/assets/images/profile-new.jpg"
+                      alt="Pathan Mo. Faizan Khan"
+                      className="w-full h-full object-contain object-center transition-transform duration-700"
+                    />
+                    {/* Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70" />
+                  </div>
                 </div>
-                
+
                 {/* Floating Badge */}
-                <div className="absolute -bottom-3 -right-3 glass-card p-2.5 rounded-xl transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                <div className="absolute -bottom-4 -right-4 glass-card p-3 rounded-xl transform rotate-6 hover:rotate-0 transition-transform duration-300 shadow-xl border-border bg-card/80 backdrop-blur-md">
                   <Code className="w-6 h-6 text-primary" />
                 </div>
-                
+
                 {/* Status Indicator */}
-                <div className="absolute top-3 left-3 flex items-center gap-1.5 glass-card px-2 py-0.5 rounded-full">
-                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-[10px] font-medium">Available for opportunities</span>
+                <div className="absolute top-4 left-4 flex items-center gap-2 glass-card px-3 py-1.5 rounded-full bg-card/80 backdrop-blur-md border-border">
+                  <div className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </div>
+                  <span className="text-[10px] font-medium tracking-wide text-foreground/90">Open to work</span>
                 </div>
               </div>
             </div>
@@ -300,25 +307,22 @@ const timelineData: TimelineItem[] = [
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
-                    className={`cursor-pointer transition-all duration-300 mb-2 ${
-                      activeTimelineItem === item.id ? 'transform scale-102' : ''
-                    }`}
+                    className={`cursor-pointer transition-all duration-300 mb-2 ${activeTimelineItem === item.id ? 'transform scale-102' : ''
+                      }`}
                     onClick={() => setActiveTimelineItem(activeTimelineItem === item.id ? "" : item.id)}
                   >
-                    <div className={`modern-card p-2.5 ${
-                      item.type === 'current' ? 'border-primary/50 bg-primary/5' :
-                      item.type === 'internship' ? 'border-accent/50 bg-accent/5' :
-                      'border-muted-foreground/20'
-                    }`}>
+                    <div className={`modern-card p-2.5 ${item.type === 'current' ? 'border-primary/50 bg-primary/5' :
+                        item.type === 'internship' ? 'border-primary/50 bg-primary/5' :
+                          'border-muted-foreground/20'
+                      }`}>
                       <div className="flex items-start gap-2">
-                        <div className={`p-1.5 rounded-lg ${
-                          item.type === 'current' ? 'bg-primary/20 text-primary' :
-                          item.type === 'internship' ? 'bg-accent/20 text-accent' :
-                          'bg-muted text-muted-foreground'
-                        }`}>
+                        <div className={`p-1.5 rounded-lg ${item.type === 'current' ? 'bg-primary/20 text-primary' :
+                            item.type === 'internship' ? 'bg-primary/20 text-primary' :
+                              'bg-muted text-muted-foreground'
+                          }`}>
                           {item.icon}
                         </div>
-                        
+
                         <div className="flex-1 min-w-0">
                           <div className="flex justify-between items-start">
                             <h4 className="font-semibold text-xs leading-tight mb-0.5">
@@ -329,7 +333,7 @@ const timelineData: TimelineItem[] = [
                           <p className="text-[10px] text-muted-foreground mb-0.5">
                             {item.organization}
                           </p>
-                          
+
                           {activeTimelineItem === item.id && item.highlights && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}

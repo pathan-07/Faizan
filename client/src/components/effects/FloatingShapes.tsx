@@ -63,8 +63,8 @@ const FloatingShapes: React.FC<FloatingShapesProps> = ({
               height: shape.size,
               animationDuration: shape.animationDuration,
               animationDelay: shape.animationDelay,
-              // Adding these inline styles to ensure the shapes are visible
-              backgroundColor: `hsla(var(--primary), ${Math.random() * 0.15 + 0.1})`,
+              // Using CSS variable for theme-aware coloring
+              backgroundColor: `hsl(var(--primary) / ${Math.random() * 0.15 + 0.1})`,
             }}
           />
         ))}

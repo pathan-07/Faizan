@@ -45,7 +45,7 @@ export const experiences: Experience[] = [
   {
   company: "GirlScript Summer of Code",
   position: "Contributor",
-  period: "07/2025 - Present",
+  period: "07/2025 - 10/2025",
   location: "Delhi, India - Remote",
   description: 
   "Selected as a Contributor for GirlScript Summer of Code open-source collaboration initiatives in India powered by GirlScript.",
@@ -70,6 +70,21 @@ export const experiences: Experience[] = [
   "Working closely with mentors to fix bugs, implement features, and improve documentation.",
   "Contributing to GitHub repositories, submitting PRs, and participating in community discussions.",
   "Gaining hands-on experience in software development, version control, and project collaboration."
+  ],
+  },
+  {
+  company: "Hackhertz'25 Hosted by SSIT",
+  position: "Organizer (Core Team) & Web Developer",
+  period: "07/2025 - 09/2025",
+  location: "Gandhinagar, Gujarat, India - On Site",
+  description: 
+  "Being Organizer (Core Team) & Web Developer for Hackhertz'25, a flagship 2-day hackathon focused on fostering innovation and technical excellence among students.",
+  highlights: [
+  "Orchestrated a major large-scale event on September 14-15, 2025, successfully managing participation for over 70 teams.",
+  "Oversaw the end-to-end event lifecycle, from logistics and volunteer coordination to problem statement curation.",
+  "Directed the technical infrastructure, including the development and deployment of the registration portal and event website.",
+  "Collaborated with industry judges and mentors to provide high-quality feedback and evaluation for participants.",
+  "Cultivated a competitive yet supportive environment that empowered students to build impactful real-world solutions."
   ],
   },
   {
@@ -129,10 +144,85 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+    {
+    title: "Price Predction model for ML Amazon solution challenge'25",
+    period: "09/2025",
+    category: 'AI/ML',
+    featured: true, // Is project ko featured banaya hai
+    description:
+      "A high-efficiency multimodal deep learning system built for the Amazon ML Challenge 2025 to predict e-commerce product pricing from images and text.",
+    details: [
+        "Implemented a 'Two-Stage Pre-computation Strategy' using DistilBERT and EfficientNet-B0 to generate hybrid embeddings.",
+        "Engineered a lightweight regression head with PyTorch, optimizing training speed for rapid iteration.",
+        "Processed large-scale datasets with memory-efficient batching to prevent resource exhaustion in constrained environments.",
+        "Achieved a validation SMAPE score of 73.94% within a competitive 48-hour online development window.",
+    ],
+    technologies: [
+      "PyTorch",
+      "Transformers",
+      "timm",
+      "Pandas",
+      "Scikit-learn",
+      "Pillow",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    liveLink: "#",
+    repoLink: "https://github.com/pathan-07/ML-Challenge-2025",
+    },
+    {
+    title: "Hackhertz'25 Event Website",
+    period: "07/2025",
+    category: 'Web Development',
+    featured: true, // Is project ko featured banaya hai
+    description:
+      "The official event portal for Hackhertz 2.0, a major college hackathon, serving as the central hub for participant registration, event details, and announcements.",
+    details: [
+        "Designed and developed a high-performance landing page to showcase hackathon tracks, timelines, and problem statements.",
+        "Facilitated a seamless registration process, successfully handling data for over 70 participating teams.",
+        "Ensured a fully responsive and accessible user interface to accommodate diverse devices during the event.",
+        "Collaborated closely with the organizing team to update real-time alerts and resources for participants.",
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Three.js",
+    ],
+    image: "/assets/images/hackhertz.png",
+    liveLink: "https://github.com/pathan-07/https://hackhertz2-0.vercel.app",
+    repoLink: "https://github.com/pathan-07/Hackhertz2.0",
+    },
+    {
+    title: "Campus Hub",
+    period: "08/2025",
+    category: 'Web Development',
+    featured: true, // Is project ko featured banaya hai
+    description:
+      "A dynamic full-stack web application designed to centralize and streamline the management of campus technical events, built with Next.js and Firebase.",
+    details: [
+        "Developed a robust architecture using Next.js for server-side rendering and Firebase for real-time backend services.",
+        "Integrated Google Genkit to implement AI-driven features within the application.",
+        "Deployed on Vercel, ensuring high availability, scalability, and optimized performance.",
+        "Created a unified platform to simplify the organization, tracking, and promotion of college tech events.",
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Firebase",
+      "Next.js",
+      "Supabase",
+    ],
+    image:"/assets/images/campushub.png",
+    liveLink: "https://caampus-hub.vercel.app",
+    repoLink: "https://github.com/pathan-07/campus-hub",
+  },
   {
     title: "Modern Portfolio Website",
     period: "05/2025",
-    category: 'Portfolio',
+    category: 'Web Development',
     featured: true, // Is project ko featured banaya hai
     description:
       "A modern, responsive personal portfolio built with React, Tailwind CSS, and Framer Motion to showcase my skills and projects.",
@@ -149,9 +239,8 @@ export const projects: Project[] = [
       "Framer Motion",
       "Three.js",
     ],
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    liveLink: "#",
+    image:"/assets/images/portfolio.png",
+    liveLink: "https://pathan-faizan-khan.vercel.app",
     repoLink: "https://github.com/pathan-07/Faizan",
   },
   {

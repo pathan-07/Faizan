@@ -21,51 +21,46 @@
     <script>
       // Custom positioning for Tidio chat widget
       (function() {
-        // Function to apply styles to Tidio
+        var tidioStyleApplied = false;
+        
+        // Function to apply styles to Tidio (only once)
         function positionTidioWidget() {
-          // Create a style element
+          if (tidioStyleApplied) return;
+          tidioStyleApplied = true;
+          
           var style = document.createElement('style');
+          style.id = 'tidio-custom-styles';
           style.type = 'text/css';
-          style.innerHTML = `
-            #tidio-chat-iframe, 
-            .tidio-5rvzwb, 
-            [id^="tidio-chat"] {
-              right: 20px !important;
-              bottom: 20px !important;
-              left: auto !important;
-              top: auto !important;
-              position: fixed !important;
-              z-index: 9999 !important;
-              margin: 0 !important;
-            }
-            @media (max-width: 768px) {
-              #tidio-chat-iframe, 
-              .tidio-5rvzwb,
-              [id^="tidio-chat"] {
-                bottom: 80px !important;
-                right: 10px !important;
-              }
-            }
-          `;
+          style.innerHTML = '\
+            #tidio-chat-iframe, \
+            .tidio-5rvzwb, \
+            [id^="tidio-chat"] { \
+              right: 20px !important; \
+              bottom: 20px !important; \
+              left: auto !important; \
+              top: auto !important; \
+              position: fixed !important; \
+              z-index: 9999 !important; \
+              margin: 0 !important; \
+            } \
+            @media (max-width: 768px) { \
+              #tidio-chat-iframe, \
+              .tidio-5rvzwb, \
+              [id^="tidio-chat"] { \
+                bottom: 80px !important; \
+                right: 10px !important; \
+              } \
+            } \
+          ';
           document.head.appendChild(style);
         }
 
-        // Apply immediately
-        positionTidioWidget();
-
-        // Apply when Tidio is ready
-        document.addEventListener('tidioChat-ready', function() {
-          positionTidioWidget();
-          
-          // Apply again after a short delay to ensure it works
-          setTimeout(positionTidioWidget, 1000);
-          setTimeout(positionTidioWidget, 2000);
-        });
+        // Apply styles when Tidio is ready
+        document.addEventListener('tidioChat-ready', positionTidioWidget);
         
-        // Also try again after page has fully loaded
+        // Fallback: Apply after page load if Tidio event doesn't fire
         window.addEventListener('load', function() {
-          positionTidioWidget();
-          setTimeout(positionTidioWidget, 1000);
+          setTimeout(positionTidioWidget, 1500);
         });
       })();
     </script>

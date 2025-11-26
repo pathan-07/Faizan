@@ -14,7 +14,7 @@ export interface Experience {
 export interface Project {
   title: string;
   period: string;
-  category: 'AI/ML' | 'Web App' | 'Chrome Extension' | 'Portfolio'; // Naya field add kiya hai
+  category: 'AI/ML' | 'Web App' | 'Chrome Extension' | 'Web Development'; // Naya field add kiya hai
   featured?: boolean; // Naya optional field
   description: string;
   details: string[]; // additionalInfo ko details se replace kiya hai
