@@ -12,7 +12,7 @@ interface SEOProps {
 const SEO: FC<SEOProps> = ({
   title = 'Pathan Mo. Faizan Khan - Portfolio',
   description = 'Portfolio website of Pathan Mo. Faizan Khan, Computer Science Engineering Student and Tech Enthusiast',
-  image = '/assets/images/profile.jpg', // Default image path
+  image = '/assets/images/faizan.jpg', // Default image path
   url = typeof window !== 'undefined' ? window.location.href : '',
   type = 'website',
 }) => {
