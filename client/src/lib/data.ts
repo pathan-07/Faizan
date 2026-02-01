@@ -289,7 +289,6 @@ export const skillCategories: SkillCategory[] = [
     color: "blue",
     skills: [
       { name: "React", level: 65, years: 1.5, type: "frontend", featured: true },
-      { name: "Vibe Coding", level: 75, years: 2, type: "frontend", featured: true },
     ],
   },
   {
@@ -315,12 +314,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Machine Learning", level: 55, years: 1, type: "ai", featured: true },
       { name: "Natural Language Processing", level: 45, years: 0.5, type: "ai", featured: true },
       { name: "Prompt Engineering", level: 85, years: 3, type: "ai", featured: true },
-      { name: "Large Language Models", level: 70, years: 2, type: "ai", featured: true },
-      { name: "OpenAI API", level: 60, years: 1, type: "ai", featured: true },
       { name: "RAG Systems", level: 40, years: 0.5, type: "ai", featured: true },
       { name: "Multi-agent AI Systems", level: 50, years: 0.5, type: "ai", featured: true },
-      { name: "AI Image Generation", level: 65, years: 1.5, type: "ai", featured: true },
-      { name: "MidJourney", level: 70, years: 1, type: "ai", featured: true },
     ],
   },
   {
@@ -331,21 +326,24 @@ export const skillCategories: SkillCategory[] = [
     color: "cyan",
     skills: [
       { name: "Git & Version Control", level: 65, years: 2, type: "emerging", featured: true },
-      { name: "AI Tool Integration", level: 60, years: 1, type: "emerging", featured: true },
+      { name: "VS Code", level: 85, years: 3, type: "emerging", featured: true },
+      { name: "Anaconda Navigator", level: 75, years: 2, type: "emerging", featured: true },
+      { name: "Google Cloud Console", level: 65, years: 1, type: "emerging", featured: true },
     ],
   },
 ];
 
 export const allSkills: string[] = [
   // Frontend Development
-  "React", "Vibe Coding",
+  "React",
   // Backend Development  
   "Python", "Flask", "Java", "C Programming",
   // AI/ML & Data Science
-  "Machine Learning", "Natural Language Processing", "Prompt Engineering", "Large Language Models",
-  "OpenAI API", "RAG Systems", "Multi-agent AI Systems", "AI Image Generation", "MidJourney",
+  "Machine Learning", "Natural Language Processing", "Prompt Engineering",
+  "RAG Systems", "Multi-agent AI Systems",
   // Developer Tools
-  "Git & Version Control", "AI Tool Integration"
+  "Git & Version Control",
+  "VS Code", "Anaconda Navigator", "Google Cloud Console",
 ];
 
 export const education: Education[] = [

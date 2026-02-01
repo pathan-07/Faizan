@@ -57,7 +57,7 @@ const AboutSection = () => {
       <Briefcase className="w-5 h-5" />, "Gandhinagar, Gujarat, India"
     ),
     createTimelineItem(
-      "opensource1", "current", "Open Source Contributor", "GirlScript Summer of Code", "Present",
+      "opensource1", "current", "Open Source Contributor", "GirlScript Summer of Code", "2025",
       "Selected contributor for one of India's largest open-source initiatives",
       ["Selected among thousands of applicants", "Working with diverse tech stacks", "Implementing features & fixing bugs",
         "Submitting PRs & participating in discussions", "Collaborating with mentors"],
@@ -272,9 +272,9 @@ const AboutSection = () => {
                 <div className="modern-card p-2 rounded-full overflow-hidden bg-card/50 backdrop-blur-sm border-border">
                   <div className="relative aspect-square rounded-full overflow-hidden bg-muted/50 flex items-center justify-center">
                     <img
-                      src="/assets/images/faizan.jpg"
+                      src="/assets/images/profile-new.jpg"
                       alt="Pathan Mo. Faizan Khan"
-                      className="w-full h-full object-cover object-center transition-transform duration-700"
+                      className="w-full h-full object-contain object-center transition-transform duration-700"
                     />
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70" />
