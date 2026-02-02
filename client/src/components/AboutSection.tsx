@@ -272,9 +272,9 @@ const AboutSection = () => {
                 <div className="modern-card p-2 rounded-full overflow-hidden bg-card/50 backdrop-blur-sm border-border">
                   <div className="relative aspect-square rounded-full overflow-hidden bg-muted/50 flex items-center justify-center">
                     <img
-                      src="/assets/images/profile-new.jpg"
+                      src="/assets/images/faizan.jpg"
                       alt="Pathan Mo. Faizan Khan"
-                      className="w-full h-full object-contain object-center transition-transform duration-700"
+                      className="w-full h-full object-cover object-center transition-transform duration-700"
                     />
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70" />
