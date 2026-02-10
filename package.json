@@ -104,7 +104,7 @@
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
     "drizzle-kit": "^0.31.4",
-    "esbuild": "^0.25.9",
+    "esbuild": "^0.25.10",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
